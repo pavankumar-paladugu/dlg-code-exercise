@@ -1,0 +1,21 @@
+<div [formGroup]="fg" *ngIf="field.formControlName !== ''">
+    <div>
+        <div>
+            <label for="{{field.formControlName}}"><b>{{field.label}}</b></label>
+        </div>
+        <div>
+            <input type="text" autocomplete="off" placeholder="{{field.placeholder}}"
+                [formControlName]="field.formControlName" id="{{field.formControlName}}">
+        </div>
+        <div *ngIf="this.submitted || (this.fg.controls[field.formControlName].invalid
+         && this.fg.controls[field.formControlName].dirty)"
+            class="alert">
+            <div *ngIf="this.fg.controls[field.formControlName].errors?.['required']">
+                <p class="error">{{field.requiredErrorMsg}}</p>
+            </div>
+            <div *ngIf="this.fg.controls[field.formControlName].errors?.['email']">
+                <p class="error">{{field.emailErrorMsg}}</p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <div class="container">
+        <h1>Subscribe</h1>
+        <p>Please fill below details to get updates on our latest product offerings.</p>
+        <hr>
+        <app-dlg-input *ngFor="let field of fields" [field]="field" [fg]="profileForm" [submitted]="submitted"></app-dlg-input>
+        <div>
+            <button type="submit" class="registerbtn">Submit</button>
+        </div>
+    </div>
+</form>
